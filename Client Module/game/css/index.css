@@ -1,0 +1,215 @@
+body {
+    font-family: Arial;
+    --darkModeBg: #373747;
+    --lightModeBg: white;
+    --darkModeColor: white;
+    --lightModeColor: black;
+    
+    background-color: var(--lightModeBg);
+    transition: .3s;
+}
+.flags {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    gap: 10px;
+}
+.flag {
+    display: flex;
+    flex-direction: column;
+}
+.flag * {
+    cursor: pointer;
+}
+.flag img {
+    width: 100px;
+}
+.players {
+    display: flex;
+    gap: 100px;
+}
+.container form {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color:inherit;
+    transition: .3s;
+}
+
+.player1, .player2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.container input {
+    padding: 9px 13px;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+h3 {
+    text-align: center;
+}
+h1 {
+     margin: 0;
+}
+
+.changeMode {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.changeMode .button {
+    width: 50px;
+    height: 25px;
+    background-color: #949494;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    position: relative;
+    cursor: pointer;
+    transition: .3s;
+}
+.changeMode .circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.balls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+div.ball1, div.ball2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+div.ball1 *, div.ball2 * {
+    cursor: pointer;
+}
+.balls img {
+    width: 75px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.play, .instruction {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: capitalize;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+    transition: .3s;
+}
+.play {
+    background-color: rgb(0, 206, 0);
+}
+.instruction {
+    background-color: rgb(196, 105, 0);
+}
+.play:hover, .instruction:hover {
+    margin-top: -2px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .25);
+}
+.play:active, .instruction:active {
+    margin-top: 0px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+    filter: brightness(1.25);
+}
+
+.instructions {
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.instructions .content {
+    position: relative;
+    height: 85%;
+    width: 35%;
+    background-color: rgb(196, 105, 0);
+    border-radius: 10px;
+    padding: 40px 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: white;
+}
+.instructions li {
+    font-size: 24px;
+    line-height: 40px;
+}
+.instructions ol {
+    padding-left: 30px;
+}
+.instructions img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 55px;
+    cursor: pointer;
+}
+.alert {
+    position: absolute;
+    top: -60px;
+    margin: 0 auto;
+    transition: .3s;
+}
+.alert .content {
+    width: 300px;
+    height: 60px;
+    background-color: rgba(255, 0, 0, 0.3);
+    border: 1px solid rgb(255, 0, 0);
+    font-weight: 500;
+    font-size: 17px;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    padding: 10px 15px;
+    text-shadow: 0px 0px 1px red;
+    box-shadow: 0px 0px 1px red, inset 0px 0px 1px red;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    display: none;
+}
