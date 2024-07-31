@@ -1,6 +1,4 @@
-localStorage.removeItem('team1');
-localStorage.removeItem('team2');
-localStorage.removeItem('ball');
+localStorage.clear();
 
 const flags = ['Brazil', 'England', 'Germany', 'Italy', 'Japan', 'Netherlands', 'Portugal', 'Spain'];
 
@@ -9,10 +7,10 @@ for(let i = 0; i < 2; i++) {
     flags.forEach(flag => {
         eFlags.innerHTML += `
         <div class="flag">
-            <label for="${flag}p${i + 1}">
+            <label for="${flag}|${i + 1}">
             <img draggable="false" src="../Sprites/Flag/${flag}.png" alt="">
                 </label>
-                <input type="radio" name="p${i + 1}flag" id="${flag}p${i + 1}" required>
+                <input type="radio" name="p${i + 1}flag" id="${flag}|${i + 1}" required>
         </div>
         `
     })
@@ -74,8 +72,6 @@ document.querySelector('.play').addEventListener('click', e => {
     
     const usnP2 = document.querySelector('.usernamep2');
     const team2 = localStorage.getItem('team2');
-    
-    const ball = localStorage.getItem('ball');
 
     alertC.textContent = '';
     alert.style.top = '-60px'
@@ -83,18 +79,18 @@ document.querySelector('.play').addEventListener('click', e => {
     setTimeout(() => {
         form.style.paddingTop = '0px';
         alertC.style.display = 'none';
-        if(!team1 || !team2 || usnP1.value === '' || usnP2.value === '' || !ball) {
+        if(!team1 || !team2 || usnP1.value === '' || usnP2.value === '') {
             if(usnP1.value === '' || usnP2.value === '') {
                 alertC.textContent = 'Please enter username';
-            } else if (!team1 || !team2) {
-                alertC.textContent = 'Choose your/enemy team';
             } else {
-                alertC.textContent = 'Choose the ball';
+                alertC.textContent = 'Choose your/enemy team';
             }
             form.style.paddingTop = '50px';
             alertC.style.display = 'flex';
             alert.style.top = '20px'
         } else {
+            localStorage.setItem('player1', usnP1.value);
+            localStorage.setItem('player2', usnP2.value);
             location.replace('./game.html');
         }
     }, 300)
